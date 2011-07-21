@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+#pearl_Image_Slider
+{
+	
+	position:relative;
+	overflow:hidden;
+	text-align:center;
+   /* width:400px;
+	
+	height:300px;
+	
+	background-color:#eeeeee;
+	border:1px solid #333;
+	padding:5px;
+	*/
+}
+#pearl_Image_Slider .pearl_slides
+{
+	margin:0;
+	padding:0;
+	position:absolute;
+	bottom:0;
+	padding-bottom:5px;
+	padding-right:5px;
+	position:relative;
+	/*
+width:400px;
+	
+	height:300px;*/
+	
+	
+}
+#pearl_Image_Slider .pearl_slides .pearl_slidetext
+{
+	position:absolute;
+	left:0px;
+	bottom:5px;
+	width:100%;
+	background-color:#eee;
+	height:50px;
+	line-height:50px;	
+	color:#000000;
+	opacity:0.7;
+	filter: alpha(opacity = 70);
+
+	
+}
+.slides a
+{
+	text-decoration:none;
+}
