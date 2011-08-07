@@ -28,8 +28,8 @@ class pearl_Image_Slider_class
 {
 	function pearl_Image_Slider_css()
 	{
-		$myStyleUrl = WP_PLUGIN_URL . '/pearl_Image_Slider/css/pearl_Image_Slider_css.css';
-        $myStyleFile = WP_PLUGIN_DIR . '/pearl_Image_Slider/css/pearl_Image_Slider_css.css';
+		$myStyleUrl = WP_PLUGIN_URL . '/image-slider-pearlbells/pearl_Image_Slider/css/pearl_Image_Slider_css.css';
+        $myStyleFile = WP_PLUGIN_DIR . '/image-slider-pearlbells/pearl_Image_Slider/css/pearl_Image_Slider_css.css';
         if ( file_exists($myStyleFile) ) 
 		{
             wp_register_style('myStyleSheets', $myStyleUrl);
