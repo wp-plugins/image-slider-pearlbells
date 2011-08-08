@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: lizeipe 
-Donate link: http://pearlbells.co.uk/
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W884YAWEDPA9U
 Tags: Image Slider, Jquery Slider,Photo display,Photo Slider
 Requires at least: 2.0.2
 Tested up to: 3.0
