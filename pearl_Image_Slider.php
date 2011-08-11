@@ -54,12 +54,13 @@ class pearl_Image_Slider_class
 	 var slidewidth_extract ='<?php echo get_option('pearl_Image_Slider_width');?>';
 	 var slidew = parseInt(slidewidth_extract.replace("px",""));
 	 var slidewidth = slidew +5;
+	 var slidespeed = '<?php echo get_option('pearl_sliding_spped');?>';
 	 
 	 var slideShowInterval;
 	 var $k = 1;
 	
 	 
-	slideShowInterval = setInterval(PlayImage,2000);
+	slideShowInterval = setInterval(PlayImage,slidespeed);
 	 
 	 
 	 function PlayImage()
@@ -134,6 +135,7 @@ class pearl_Image_Slider_class
 		$images =& get_children( 'post_type=attachment&post_mime_type=image&post_parent=' . get_the_id() );
 		$i=1;
 		$charater_length = get_option('pearl_Title_Character_Length');
+		$pearl_caption = get_option('pearl_caption');
 		
 		$display_image = '<div id="pearl_Image_Slider">';
 	    foreach( $images as $imageID => $imagePost )
@@ -150,13 +152,16 @@ class pearl_Image_Slider_class
 				$display_image .= wp_get_attachment_image($imageID, $size, false);	
 				$title = get_the_title($imageID);
 				$title_length =	strlen(get_the_title($imageID));
-				$display_image .= '<div class="pearl_slidetext">'.substr($title,0,$charater_length);
-				if($title_length>$charater_length)
+				if($pearl_caption =='yes')
 				{
-					$display_image .= '. . .';
-					
+					$display_image .= '<div class="pearl_slidetext">'.substr($title,0,$charater_length);
+					if($title_length>$charater_length)
+					{
+						$display_image .= '. . .';
+						
+					}
+					$display_image .= '</div>';
 				}
-				$display_image .= '</div>';
 				$display_image .= '</div>';
 				
 			}
@@ -175,6 +180,9 @@ class pearl_Image_Slider_class
 		add_option('pearl_Image_Slider_border_width','1px','','yes');
 		add_option('pearl_Image_Slider_padding','5px','','yes');
 		add_option('pearl_Title_Character_Length','15','','yes');
+		add_option('pearl_sliding_spped','2000','','yes');
+		add_option('pearl_caption','yes','','yes');
+		
 		
 	}
 	function pearl_Image_Slider_uninstall()
@@ -186,7 +194,8 @@ class pearl_Image_Slider_class
 		delete_option('pearl_Image_Slider_border_width');
 		delete_option('pearl_Image_Slider_padding');
 		delete_option('pearl_Title_Character_Length');
-		
+		delete_option('pearl_sliding_spped');
+		delete_option('pearl_caption');
 	}
 	
 	function pearl_Image_Slider_menu()
@@ -213,7 +222,18 @@ class pearl_Image_Slider_class
 	{
 		$ok = false;
 		
-		
+		if($_REQUEST['pearl_caption'])
+		{
+			update_option('pearl_caption',$_REQUEST['pearl_caption']);
+			$ok = true;
+			
+		}
+		if($_REQUEST['pearl_sliding_spped'])
+		{
+			update_option('pearl_sliding_spped',$_REQUEST['pearl_sliding_spped']);
+			$ok = true;
+			
+		}
 		if($_REQUEST['pearl_Title_Character_Length'])
 		{
 			update_option('pearl_Title_Character_Length',$_REQUEST['pearl_Title_Character_Length']);
