@@ -29,13 +29,19 @@ This plugin is very helpful for those who manage a portfolio site or any site di
 
 = How many images I can display in a Image slider ? =
 
-  You can display as many images as you want as a slider using this plugin.
- 
+  You can display as many images as you want as a slider using this plugin. 
 
 = Can I customise the display to match with the look and feel of my website? =
 
    Yes you can set styles from the admin area. 
 
+= Is it possible to set the sliding speed? =
+
+   Yes you can set speed from the admin area. 
+
+= Is it possible to display title/caption? =
+
+   Yes you can .However if you do not want the caption bar you can opt to disable it as well
 
 == Screenshots ==
 
