@@ -31,5 +31,5 @@
            <input type="submit" name="submit" value="Submit"/>
         </form>
         
-         <p>Created by <a href="http://pearlbells.co.uk/" target="_blank">Pearlbells</a><br/> Follow me : <a href="http://twitter.com/#!/pearlbells" target="_blank">Twitter</a><br/>Please Donate : <a href="https://www.paypal.com/uk/cgi-bin/webscr?cmd=_flow&SESSION=85kxHhXUkKMMDBi0tzzqLlfvziVlQruaxU55y4Hs_TUAUVZC6KgoEk2YLgG&dispatch=5885d80a13c0db1f8e263663d3faee8d1e83f46a36995b3856cef1e18897ad75" target="_blank">Click Here</a></p>
+         <p>Created by <a href="http://pearlbells.co.uk/" target="_blank">Pearlbells</a><br/> Follow me : <a href="http://twitter.com/#!/pearlbells" target="_blank">Twitter</a><br/>Please Donate : <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W884YAWEDPA9U" target="_blank">Click Here</a></p>
          <p>Feel free to email me lizeipe@gmail.com for any advice or suggestion.</p>
