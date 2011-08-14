@@ -14,6 +14,15 @@ Image Slider Wordpress plugin helps to display image slider in a wordpress websi
 
 This plugin is very helpful for those who manage a portfolio site or any site displaying a series of images or photos.There is option to customise the display by modifying the dimesions, background colour, captions etc.
 
+It is possible to customise the display features to sync with the look and feel of your website. The customisation features include:
+
+ - can set the height and width 
+ - can set border colour, background colour and border width
+ - can enable or disable title/captions for images
+ - can set speed of transition
+ - can select transition types (fade in/out or slider)
+
+
 
 
 == Installation ==
@@ -42,6 +51,10 @@ This plugin is very helpful for those who manage a portfolio site or any site di
 = Is it possible to display title/caption? =
 
    Yes you can .However if you do not want the caption bar you can opt to disable it as well
+
+= Is it possible to select transition type? =
+
+   You can chose from 2 transition options. Fade in/out or slide.
 
 == Screenshots ==
 
