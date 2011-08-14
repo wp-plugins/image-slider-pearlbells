@@ -6,14 +6,7 @@
 	position:relative;
 	overflow:hidden;
 	text-align:center;
-   /* width:400px;
-	
-	height:300px;
-	
-	background-color:#eeeeee;
-	border:1px solid #333;
-	padding:5px;
-	*/
+  
 }
 #pearl_Image_Slider .pearl_slides
 {
@@ -24,10 +17,6 @@
 	padding-bottom:5px;
 	padding-right:5px;
 	position:relative;
-	/*
-width:400px;
-	
-	height:300px;*/
 	
 	
 }
@@ -49,4 +38,26 @@ width:400px;
 .slides a
 {
 	text-decoration:none;
+}
+#pearl_slideshow
+{
+	
+	overflow:hidden;
+	text-align:center;
+}
+
+#pearl_slideshow span
+{
+	display:block;
+	line-height:50px;
+	text-align:center;
+	
+}
+#pearl_slideshow div.prev
+{
+	z-index:1;
+}
+#pearl_slideshow div.pearl_active
+{
+	z-index:2;
 }
