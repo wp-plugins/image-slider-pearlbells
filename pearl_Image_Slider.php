@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Image Slider Pearlbells
+Plugin Name: Image Slider / Slideshow Pearlbells
 Plugin URI: http://pearlbells.co.uk/
 Description: Image Slider Pearlbells
 Version:  1.0
@@ -46,7 +46,7 @@ class pearl_Image_Slider_class
 		var $jquery = jQuery.noConflict(); 
 		$jquery(document).ready(function(){
 		
-	 setImageSliderStyle();
+	 
 	 var slides = $jquery('.pearl_slides'); 
 	 var numberofSlides = slides.length;
 	 var curposition = 0;
@@ -55,12 +55,39 @@ class pearl_Image_Slider_class
 	 var slidew = parseInt(slidewidth_extract.replace("px",""));
 	 var slidewidth = slidew +5;
 	 var slidespeed = '<?php echo get_option('pearl_sliding_spped');?>';
+	 var pearl_transition_type = '<?php echo get_option('pearl_transition_type');?>';
+	 
 	 
 	 var slideShowInterval;
 	 var $k = 1;
+	 
+	 if(pearl_transition_type =='slide')
+	 {
+		 setImageSliderStyle();
+		 slideShowInterval = setInterval(PlayImage,slidespeed);
+		 
+	 }
+	 else
+	 {
+		 setImageSlideshowStyle();
+		 slideShowInterval = setInterval( animatefade, slidespeed );
+	 }
 	
 	 
-	slideShowInterval = setInterval(PlayImage,slidespeed);
+	function animatefade()
+	{
+		 var curPic =$jquery('#pearl_slideshow div.pearl_active');
+		 var nexPic = curPic.next();
+		 
+		 if(nexPic.length==0)
+		 {
+			 nexPic =$jquery('#pearl_slideshow div:first');
+		 }
+		 
+		 curPic.removeClass('pearl_active').addClass('prev').fadeOut(1000);
+		 nexPic.removeClass('prev').addClass('pearl_active').fadeIn(1000);
+			 
+	}
 	 
 	 
 	 function PlayImage()
@@ -98,6 +125,27 @@ class pearl_Image_Slider_class
 			
 				
 	});
+	
+	    function setImageSlideshowStyle()
+		{
+			var pearl_Image_Slider_height ='<?php echo get_option('pearl_Image_Slider_height');?>';
+	        var pearl_Image_Slider_width ='<?php echo get_option('pearl_Image_Slider_width');?>';
+			var pearl_Image_Slider_bg_color ='<?php echo get_option('pearl_Image_Slider_bg_color');?>';
+			var pearl_Image_Slider_border_color ='<?php echo get_option('pearl_Image_Slider_border_color');?>';
+			var pearl_Image_Slider_border_width ='<?php echo get_option('pearl_Image_Slider_border_width');?>';
+			var pearl_Image_Slider_padding ='<?php echo get_option('pearl_Image_Slider_padding');?>';
+			
+			$jquery('#pearl_slideshow').css({
+           "background-color":pearl_Image_Slider_bg_color,
+		   "width":pearl_Image_Slider_width,
+		   "height":pearl_Image_Slider_height,
+		   "border-width":pearl_Image_Slider_border_width,
+		   "border-style":"solid",
+		   "border-color": pearl_Image_Slider_border_color,
+		   "padding": pearl_Image_Slider_padding});
+			
+		}
+	
 		function setImageSliderStyle()
 		{
 			var pearl_Image_Slider_height ='<?php echo get_option('pearl_Image_Slider_height');?>';
@@ -136,37 +184,73 @@ class pearl_Image_Slider_class
 		$i=1;
 		$charater_length = get_option('pearl_Title_Character_Length');
 		$pearl_caption = get_option('pearl_caption');
+		$pearl_transition_type = get_option('pearl_transition_type');;
 		
-		$display_image = '<div id="pearl_Image_Slider">';
-	    foreach( $images as $imageID => $imagePost )
-			{   
-			if($i==1)
-			{
-				$i=0;
-				$display_image .= '<div class="pearl_slides">';
-			}
-			else
-			{
-				$display_image .= '<div class="pearl_slides">';
-			}
-				$display_image .= wp_get_attachment_image($imageID, $size, false);	
-				$title = get_the_title($imageID);
-				$title_length =	strlen(get_the_title($imageID));
-				if($pearl_caption =='yes')
+		if($pearl_transition_type == 'slide')
+		{
+			$display_image = '<div id="pearl_Image_Slider">';
+			foreach( $images as $imageID => $imagePost )
+				{   
+				if($i==1)
 				{
-					$display_image .= '<div class="pearl_slidetext">'.substr($title,0,$charater_length);
-					if($title_length>$charater_length)
+					$i=0;
+					$display_image .= '<div class="pearl_slides">';
+				}
+				else
+				{
+					$display_image .= '<div class="pearl_slides">';
+				}
+					$display_image .= wp_get_attachment_image($imageID, $size, false);	
+					$title = get_the_title($imageID);
+					$title_length =	strlen(get_the_title($imageID));
+					if($pearl_caption =='yes')
 					{
-						$display_image .= '. . .';
-						
+						$display_image .= '<div class="pearl_slidetext">'.substr($title,0,$charater_length);
+						if($title_length>$charater_length)
+						{
+							$display_image .= '. . .';
+							
+						}
+						$display_image .= '</div>';
 					}
 					$display_image .= '</div>';
+					
 				}
-				$display_image .= '</div>';
-				
-			}
-		$display_image .= '</div>';
-		
+			$display_image .= '</div>';
+		}
+		else
+		{ // for fade in/out
+			
+			$display_image = '<div id="pearl_slideshow">';
+			foreach( $images as $imageID => $imagePost )
+				{   
+				if($i==1)
+				{
+					$i=0;
+					$display_image .= '<div class="pearl_active">';
+				}
+				else
+				{
+					$display_image .= '<div>';
+				}
+					$display_image .= wp_get_attachment_image($imageID, $size, false);
+					$title = get_the_title($imageID);
+					$title_length =	strlen(get_the_title($imageID));
+					if($pearl_caption =='yes')
+					{		
+						$display_image .= '<span>'.substr($title,0,$charater_length);
+						if($title_length>$charater_length)
+						{
+							$display_image .= '. . .';
+							
+						}
+						$display_image .= '</span>';
+					}
+					$display_image .= '</div>';
+					
+				} //end foreach
+			$display_image .= '</div>';
+		} // end else loop
 		
 		return $display_image;		
 	}
@@ -182,6 +266,8 @@ class pearl_Image_Slider_class
 		add_option('pearl_Title_Character_Length','15','','yes');
 		add_option('pearl_sliding_spped','2000','','yes');
 		add_option('pearl_caption','yes','','yes');
+		add_option('pearl_transition_type','slide','','yes');
+		
 		
 		
 	}
@@ -196,6 +282,7 @@ class pearl_Image_Slider_class
 		delete_option('pearl_Title_Character_Length');
 		delete_option('pearl_sliding_spped');
 		delete_option('pearl_caption');
+		delete_option('pearl_transition_type');
 	}
 	
 	function pearl_Image_Slider_menu()
@@ -222,6 +309,12 @@ class pearl_Image_Slider_class
 	{
 		$ok = false;
 		
+		if($_REQUEST['pearl_transition_type'])
+		{
+			update_option('pearl_transition_type',$_REQUEST['pearl_transition_type']);
+			$ok = true;
+			
+		}
 		if($_REQUEST['pearl_caption'])
 		{
 			update_option('pearl_caption',$_REQUEST['pearl_caption']);
