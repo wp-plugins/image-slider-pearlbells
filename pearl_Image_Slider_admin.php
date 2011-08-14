@@ -7,6 +7,7 @@
 	  $default_pearl_Title_Character_Length = get_option('pearl_Title_Character_Length');
 	  $default_pearl_sliding_speed = get_option('pearl_sliding_spped');
 	  $default_pearl_caption = get_option('pearl_caption');
+	  $default_pearl_transition_type = get_option('pearl_transition_type');
 ?>
       <form method="post">
            <label for="pearl_Image_Slider_width">Width :</label>
@@ -26,7 +27,9 @@
            <label for="pearl_sliding_spped">Speed :</label>
            <input type="text" name="pearl_sliding_spped" value="<?php echo $default_pearl_sliding_speed;?>"/><br/>
            <label for="pearl_caption">Display Caption / Title :</label>
-           <input type="radio" name="pearl_caption" value="yes"<?php echo $default_pearl_caption;?> /> Yes <input type="radio" name="pearl_caption" value="no"<?php echo $default_pearl_caption;?> /> No
+           <input type="radio" name="pearl_caption" value="yes"<?php echo $default_pearl_caption;?> /> Yes <input type="radio" name="pearl_caption" value="no"<?php echo $default_pearl_caption;?> /> No<br/>
+           <label for="pearl_transition_type">Transition Type :</label>
+           <input type="radio" name="pearl_transition_type" value="fadein"<?php echo $default_pearl_transition_type;?> /> Fade In/Out <input type="radio" name="pearl_transition_type" value="slide"<?php echo $default_pearl_transition_type;?> /> Slide<br/>
                       
            <input type="submit" name="submit" value="Submit"/>
         </form>
