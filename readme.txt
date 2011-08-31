@@ -14,6 +14,8 @@ Image Slider Wordpress plugin helps to display image slider in a wordpress websi
 
 This plugin is very helpful for those who manage a portfolio site or any site displaying a series of images or photos.There is option to customise the display by modifying the dimesions, background colour, captions etc.
 
+How to Install - <a href="http://pearlbells.co.uk/joomlaportfolio/8-slideshow-plugin.html">Click here</a>
+
 It is possible to customise the display features to sync with the look and feel of your website. The customisation features include:
 
  - can set the height and width 
