@@ -3,9 +3,9 @@
 Plugin Name: Image Slider / Slideshow Pearlbells
 Plugin URI: http://pearlbells.co.uk/
 Description: Image Slider Pearlbells
-Version:  1.0
+Version:  2.0
 Author:Pearlbells
-Author URI: http://pearlbells.co.uk/contact.html
+Author URI: http://pearlbells.co.uk/contact-page
 License: GPL2
 */
 /*
@@ -157,11 +157,13 @@ class pearl_Image_Slider_class
 			var pearl_Slide_Direction ='<?php echo get_option('pearl_Slide_Direction');?>';
 			
 		   $jquery('#pearl_Image_Slider').css({
-           "background-color":pearl_Image_Slider_bg_color,
+                   "background-color":pearl_Image_Slider_bg_color,
 		   "width":pearl_Image_Slider_width,
 		   "height":pearl_Image_Slider_height,
 		   "border-width":pearl_Image_Slider_border_width,
 		   "border-style":"solid",
+                   "overflow":"hidden",
+                   "text-align":"center",
 		   "border-color": pearl_Image_Slider_border_color,
 		   "padding": pearl_Image_Slider_padding});
 		   
