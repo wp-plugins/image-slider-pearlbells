@@ -26,16 +26,10 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 $pearl_Image_Slider_class = new pearl_Image_Slider_class();
 class pearl_Image_Slider_class
 {
-	function pearl_Image_Slider_css()
-	{
-		$myStyleUrl = WP_PLUGIN_URL . '/image-slider-pearlbells/pearl_Image_Slider/css/pearl_Image_Slider_css.css';
-        $myStyleFile = WP_PLUGIN_DIR . '/image-slider-pearlbells/pearl_Image_Slider/css/pearl_Image_Slider_css.css';
-        if ( file_exists($myStyleFile) ) 
-		{
-            wp_register_style('myStyleSheets', $myStyleUrl);
-            wp_enqueue_style( 'myStyleSheets');
-        }
-	}
+    
+        function safely_add_stylesheet() {
+             wp_enqueue_style( 'pearl_image_slider', plugins_url('pearl_Image_Slider/css/pearl_Image_Slider_css.css', __FILE__) );
+         }
 	
 	function pearl_Image_Slider_script()
 	{
@@ -397,7 +391,7 @@ class pearl_Image_Slider_class
 	
 }
 add_action('admin_menu',array($pearl_Image_Slider_class,'pearl_Image_Slider_menu'));
-add_action('wp_print_styles', array($pearl_Image_Slider_class,'pearl_Image_Slider_css'));
+add_action( 'wp_enqueue_scripts', array($pearl_Image_Slider_class,'safely_add_stylesheet') );
 add_action('wp_head', array($pearl_Image_Slider_class,'pearl_Image_Slider_script'));
 add_shortcode('pearl_Image_Slider_display', array($pearl_Image_Slider_class,'pearl_Image_Slider_getImage'));
 register_activation_hook(__FILE__,array($pearl_Image_Slider_class,'pearl_Image_Slider_install'));
