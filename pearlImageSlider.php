@@ -3,7 +3,7 @@
 Plugin Name: Image Slider / Slideshow Pearlbells
 Plugin URI: http://pearlbells.co.uk/
 Description: Image Slider Pearlbells
-Version:  3.0
+Version:  4.0
 Author:Pearlbells
 Author URI: http://pearlbells.co.uk/contact-page
 License: GPL2
