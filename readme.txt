@@ -3,18 +3,16 @@ Contributors: lizeipe
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W884YAWEDPA9U
 Tags: Image Slider, Jquery Slider,Photo display,Photo Slider
 Requires at least: 2.0.2
-Tested up to: 3.0
+Tested up to: 4.2.2
 Stable tag: 4.3
 
 Image Slider Wordpress plugin helps to display image slider in a wordpress website.
 
 == Description ==
 
-Image Slider Wordpress plugin helps to display image slider in a wordpress website. IF you want to display 10 images in a webpage as an image slider you have to go to that particular webpage and upload your images using Wordpress image upload function. You should then enter [pearl_Image_Slider_display] on the location of the webpage where you need the image slider to be displayed.It is very easy to use and simple to implement.
+Image Slider Wordpress plugin helps to display image slider in a wordpress website. If you want to display  images in a webpage as an image slider you have to go to that particular webpage and upload your images using Wordpress image upload function. You should then enter [pearl_Image_Slider_display] on the location of the webpage where you need the image slider to be displayed.It is very easy to use and simple to implement.
 
 This plugin is very helpful for those who manage a portfolio site or any site displaying a series of images or photos.There is option to customise the display by modifying the dimesions, background colour, captions etc.
-
-How to Install - <a href="http://pearlbells.co.uk/extensions/image-slider">Click here</a>
 
 It is possible to customise the display features to sync with the look and feel of your website. The customisation features include:
 
@@ -65,6 +63,9 @@ the directory of the stable readme.txt, so in this case, `/tags/4.3/screenshot-1
 2. This is the second screen shot
 
 == Changelog ==
+
+= 4.0 =
+* Upgrade plugin
 
 = 3.0 =
 * Changed layout
